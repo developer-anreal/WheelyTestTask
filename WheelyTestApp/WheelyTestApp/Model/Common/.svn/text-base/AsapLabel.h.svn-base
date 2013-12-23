@@ -1,0 +1,15 @@
+//
+//  AsapLabel.h
+//  OutFlair
+//
+
+#import <UIKit/UIKit.h>
+
+@interface AsapLabel : UILabel
+
+@property (nonatomic, strong) NSString *fontName;
+@property (nonatomic, assign) CGFloat fontSize;
+
+- (void)resetDefaultFont;
+
+@end

@@ -1,0 +1,13 @@
+//
+// UILabel(Additions)
+// Stampede
+//
+
+#import <Foundation/Foundation.h>
+
+@interface UILabel (Additions)
+
+- (float)expectedHeight;
+- (void)resizeToStretch;
+
+@end

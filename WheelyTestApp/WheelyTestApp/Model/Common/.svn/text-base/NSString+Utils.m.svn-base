@@ -1,0 +1,73 @@
+//
+//  NSString+Utils.m
+//
+//
+
+#import "NSString+Utils.h"
+
+#import <CommonCrypto/CommonCrypto.h>
+
+
+@implementation NSString (Utils)
+
+
++ (BOOL)isEmpty:(NSString *)string {
+  return (string == nil) || ([string trimmedString].length == 0);
+}
+
++ (NSString *)instancedString:(NSString *)string {
+  return [NSString isEmpty:string] ? @"" : string;
+}
+
+- (NSString *)trimmedString {
+  return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (NSURL *)phoneNativeURL {
+  NSString *sourcePhone = [NSString stringWithString:self];
+  // replace leading 7 to 8
+  if ([sourcePhone characterAtIndex:0] == '+' &&
+      [sourcePhone characterAtIndex:1] == '7') {
+    sourcePhone = [sourcePhone stringByReplacingCharactersInRange:NSMakeRange(0, 2) withString:@"8"];
+  }
+  // replace all non-numeric characters
+  NSString *resultPhone = [[sourcePhone componentsSeparatedByCharactersInSet:
+                            [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]componentsJoinedByString:@""];
+  
+  // check telephone format
+  if (resultPhone.length != 11) {
+    DLog(@"Invalid phone format: %@", self);
+    return nil;
+  }
+  // get native phone URL
+  NSString *nativeUrl = [NSString stringWithFormat:@"tel:%@", resultPhone];
+  return [NSURL URLWithString:nativeUrl];
+}
+
+- (BOOL)isValidEmail
+{
+	BOOL stricterFilter = YES; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+	NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+	NSString *laxString = @".+@([A-Za-z0-9]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+	NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+	NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+	return [emailTest evaluateWithObject:self];
+}
+
+- (NSString *)hashString {
+	const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
+	NSData *data = [NSData dataWithBytes:cstr length:self.length];
+	
+	uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+	
+	CC_SHA1(data.bytes, data.length, digest);
+	
+	NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+	
+	for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
+		[output appendFormat:@"%02x", digest[i]];
+	
+	return output;
+}
+
+@end

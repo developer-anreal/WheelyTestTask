@@ -1,0 +1,53 @@
+//
+//  AsapLabel.m
+//  OutFlair
+//
+
+#import "AsapLabel.h"
+
+@implementation AsapLabel
+
+@synthesize fontName;
+
+- (void)setFontName:(NSString *)fontName_
+{
+	if (fontName_)
+	{
+		fontName = fontName_;
+		[self customizeLabel];		
+	}
+}
+
+- (void)setFontSize:(CGFloat)fontSize {
+  if (fontSize > 0) {
+    self.font = [UIFont fontWithName:fontName size:fontSize];
+  }
+}
+
+
+- (void)customizeLabel
+{
+	self.font = [UIFont fontWithName:fontName size:self.font.pointSize];
+}
+
+- (void)resetDefaultFont
+{	
+	[self setFontName:@"Asap"];
+}
+
+- (id)init
+{
+	self = [super init];
+	if (self) {
+		[self resetDefaultFont];
+	}
+	return self;
+}
+
+- (void)awakeFromNib
+{
+	[super awakeFromNib];
+	[self resetDefaultFont];
+}
+
+@end

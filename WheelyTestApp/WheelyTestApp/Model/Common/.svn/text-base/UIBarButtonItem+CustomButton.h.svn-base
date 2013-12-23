@@ -1,0 +1,13 @@
+//
+//  UIBarButtonItem+CustomButton.h
+//  OutFlair
+//
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UIBarButtonItem (CustomButton)
+
++ (UIBarButtonItem *)backButtonWithTarget:(id)target action:(SEL)action;
+
+@end

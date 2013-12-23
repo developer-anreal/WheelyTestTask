@@ -1,0 +1,10 @@
+//
+//  AsapBoldLabel.h
+//  OutFlair
+//
+
+#import "AsapLabel.h"
+
+@interface AsapBoldLabel : AsapLabel
+
+@end

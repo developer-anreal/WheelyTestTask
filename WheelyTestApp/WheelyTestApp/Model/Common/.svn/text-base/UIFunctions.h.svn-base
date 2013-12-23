@@ -1,0 +1,7 @@
+//
+//  UIFunctions.h
+
+
+#import <Foundation/Foundation.h>
+
+NSString *UINamed(NSString *resource);

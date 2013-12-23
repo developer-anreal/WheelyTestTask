@@ -1,0 +1,18 @@
+//
+//  NSString+Utils.h
+//
+//
+
+#import <Foundation/Foundation.h>
+
+
+@interface NSString (Utils)
+
++ (BOOL)isEmpty:(NSString *)string;
++ (NSString *)instancedString:(NSString *)string;
+- (NSString *)trimmedString;
+- (NSURL *)phoneNativeURL;
+- (BOOL)isValidEmail;
+- (NSString *)hashString;
+
+@end

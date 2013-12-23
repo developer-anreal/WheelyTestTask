@@ -1,0 +1,157 @@
+//
+//  NSDictionary+Properties.m
+
+
+#import "NSDictionary+Properties.h"
+
+@implementation NSDictionary (Properties)
+
+- (NSString *)stringForKey:(NSString *)key {
+	id object = [self objectForKey:key];
+	if ([object isKindOfClass:[NSString class]]) {
+		return object;
+	}
+	else if ([object isKindOfClass:[NSNumber class]]) {
+		return [object stringValue];
+	}
+	
+	return nil;
+}
+
+- (NSDate *)dateForKey:(NSString *)key {
+	id object = [self objectForKey:key];
+	if ([object isKindOfClass:[NSDate class]]) {
+		return object;
+	}
+	else if ([object isKindOfClass:[NSString class]]) {
+		NSDate *date = nil;
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		
+		if (!date) {
+			formatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
+			date = [formatter dateFromString:object];
+		}
+		
+		if (!date) {
+			formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+			date = [formatter dateFromString:object];
+		}
+
+		if (!date) {
+			formatter.dateFormat = @"yyyy-MM-dd";
+			date = [formatter dateFromString:object];
+		}
+		
+		if (!date) {
+			formatter.dateFormat = @"MM/dd/yyyy";
+			date = [formatter dateFromString:object];
+		}
+
+		return date;
+	}
+	
+	return nil;
+}
+
+- (NSNumber *)numberForKey:(id)key {
+	id object = [self objectForKey:key];
+	if ([object isKindOfClass:[NSNumber class]]) {
+		return object;
+	}
+	else if ([object isKindOfClass:[NSString class]]) {
+		return @([object floatValue]);
+	}
+	
+	return nil;
+}
+
+- (NSArray *)arrayForKey:(NSString *)key
+{
+	id object = [self objectForKey:key];
+	if ([object isKindOfClass:[NSArray class]]) {
+		return object;
+	}
+	
+	return nil;
+}
+
+- (NSDictionary *)dictionaryForKey:(NSString *)key
+{
+	id object = [self objectForKey:key];
+	if ([object isKindOfClass:[NSDictionary class]]) {
+		return object;
+	}
+	
+	return nil;
+}
+
+
+@end
+
+
+@implementation NSMutableDictionary (Properties)
+
+
+- (NSDateFormatter *)dateFormatter {
+	NSDateFormatter *dateFormatter = nil;
+	dateFormatter = [[NSDateFormatter alloc] init];
+	dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+	dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+	return dateFormatter;
+}
+
+- (void)_setObject:(id)object forKey:(NSString *)key {
+	if (object && key) {
+		[self setObject:object forKey:key];
+	}
+	else if (key) {
+		[self removeObjectForKey:key];
+	}
+}
+
+- (void)setString:(NSString *)string forKey:(id)key {
+	[self _setObject:string forKey:key];
+}
+
+- (void)setNumber:(NSNumber *)number forKey:(id)key {
+	[self _setObject:number forKey:key];
+}
+
+- (void)setDate:(NSDate *)date forKey:(id)key {
+	[self _setObject:date forKey:key];
+}
+
+- (void)setDateAsString:(NSDate *)date forKey:(id)key {
+	[self _setObject:[self.dateFormatter stringFromDate:date] forKey:key];
+}
+
+@end
+
+@implementation NSArray (Additions)
+
+- (NSArray *)uniqueObjectByKeyPath:(NSString *)keyPath {
+	
+	NSMutableArray *uniqueObjects = [NSMutableArray arrayWithCapacity:self.count];
+	
+	for (id object in self) {
+		id attribute = [object valueForKeyPath:keyPath];
+		
+		BOOL isAlreadyInArray = NO;
+		for (id uniqueObject in uniqueObjects) {
+			if ([[uniqueObject valueForKeyPath:keyPath] isEqual:attribute]) {
+				isAlreadyInArray = YES;
+				break;
+			}
+		}
+		
+		if (!isAlreadyInArray) {
+			[uniqueObjects addObject:object];
+		}
+		
+	}
+	
+	return uniqueObjects;	
+}
+
+
+@end

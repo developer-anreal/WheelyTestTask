@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0AB9976724B498F884C8B84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D6969AC06A45599DD0519E /* libPods.a */; };
 		DB38ECC91868977200028517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38ECC81868977200028517 /* Foundation.framework */; };
 		DB38ECCB1868977200028517 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38ECCA1868977200028517 /* CoreGraphics.framework */; };
 		DB38ECCD1868977200028517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38ECCC1868977200028517 /* UIKit.framework */; };
@@ -25,6 +24,19 @@
 		DB38ECFF1868A28A00028517 /* HMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB38ECFE1868A28A00028517 /* HMBaseViewController.m */; };
 		DB38ED021868A29D00028517 /* HMBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB38ED011868A29D00028517 /* HMBaseTableViewController.m */; };
 		DB38ED051868A39600028517 /* HMWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB38ED041868A39600028517 /* HMWheelViewController.m */; };
+		DB83024C1868B53600320F12 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83024B1868B53600320F12 /* MBProgressHUD.m */; };
+		DB83027B1868B7CD00320F12 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83024F1868B7CD00320F12 /* Common.m */; };
+		DB83027D1868B7CD00320F12 /* UIDevice+Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302531868B7CD00320F12 /* UIDevice+Platform.m */; };
+		DB83027E1868B7CD00320F12 /* UIFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302551868B7CD00320F12 /* UIFunctions.m */; };
+		DB83027F1868B7CD00320F12 /* UILabel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302571868B7CD00320F12 /* UILabel+Additions.m */; };
+		DB8302821868B7CD00320F12 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83025E1868B7CD00320F12 /* DataProvider.m */; };
+		DB8302831868B7CD00320F12 /* DataProviderFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302601868B7CD00320F12 /* DataProviderFactory.m */; };
+		DB8302841868B7CD00320F12 /* WebServiceDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302621868B7CD00320F12 /* WebServiceDataProvider.m */; };
+		DB8302861868B7CD00320F12 /* RequestResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302671868B7CD00320F12 /* RequestResultsController.m */; };
+		DB8302881868B7CD00320F12 /* HMItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83026C1868B7CD00320F12 /* HMItem.m */; };
+		DB8302891868B7CD00320F12 /* HMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83026E1868B7CD00320F12 /* HMObject.m */; };
+		DB8302951868C28F00320F12 /* HMModelObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83028F1868C28F00320F12 /* HMModelObjectFactory.m */; };
+		DB8302971868C28F00320F12 /* ModelObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302931868C28F00320F12 /* ModelObjectFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7D03E6711B3F49CCB3E29701 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		81D6969AC06A45599DD0519E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB38ECC51868977200028517 /* WheelyTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheelyTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB38ECC81868977200028517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +75,36 @@
 		DB38ED011868A29D00028517 /* HMBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMBaseTableViewController.m; path = Controller/Base/HMBaseTableViewController.m; sourceTree = "<group>"; };
 		DB38ED031868A39600028517 /* HMWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMWheelViewController.h; path = Controller/HMWheelViewController.h; sourceTree = "<group>"; };
 		DB38ED041868A39600028517 /* HMWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMWheelViewController.m; path = Controller/HMWheelViewController.m; sourceTree = "<group>"; };
+		DB83024A1868B53600320F12 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		DB83024B1868B53600320F12 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		DB83024E1868B7CD00320F12 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		DB83024F1868B7CD00320F12 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		DB8302521868B7CD00320F12 /* UIDevice+Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Platform.h"; sourceTree = "<group>"; };
+		DB8302531868B7CD00320F12 /* UIDevice+Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Platform.m"; sourceTree = "<group>"; };
+		DB8302541868B7CD00320F12 /* UIFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFunctions.h; sourceTree = "<group>"; };
+		DB8302551868B7CD00320F12 /* UIFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFunctions.m; sourceTree = "<group>"; };
+		DB8302561868B7CD00320F12 /* UILabel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Additions.h"; sourceTree = "<group>"; };
+		DB8302571868B7CD00320F12 /* UILabel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Additions.m"; sourceTree = "<group>"; };
+		DB83025D1868B7CD00320F12 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
+		DB83025E1868B7CD00320F12 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
+		DB83025F1868B7CD00320F12 /* DataProviderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderFactory.h; sourceTree = "<group>"; };
+		DB8302601868B7CD00320F12 /* DataProviderFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderFactory.m; sourceTree = "<group>"; };
+		DB8302611868B7CD00320F12 /* WebServiceDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceDataProvider.h; sourceTree = "<group>"; };
+		DB8302621868B7CD00320F12 /* WebServiceDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceDataProvider.m; sourceTree = "<group>"; };
+		DB8302661868B7CD00320F12 /* RequestResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestResultsController.h; sourceTree = "<group>"; };
+		DB8302671868B7CD00320F12 /* RequestResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestResultsController.m; sourceTree = "<group>"; };
+		DB83026B1868B7CD00320F12 /* HMItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMItem.h; sourceTree = "<group>"; };
+		DB83026C1868B7CD00320F12 /* HMItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMItem.m; sourceTree = "<group>"; };
+		DB83026D1868B7CD00320F12 /* HMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMObject.h; sourceTree = "<group>"; };
+		DB83026E1868B7CD00320F12 /* HMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMObject.m; sourceTree = "<group>"; };
+		DB8302781868B7CD00320F12 /* ItemWrapperProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemWrapperProtocol.h; sourceTree = "<group>"; };
+		DB8302791868B7CD00320F12 /* ModelWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelWrapper.h; sourceTree = "<group>"; };
+		DB83027A1868B7CD00320F12 /* ObjectWrapperProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWrapperProtocol.h; sourceTree = "<group>"; };
+		DB83028E1868C28F00320F12 /* HMModelObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMModelObjectFactory.h; sourceTree = "<group>"; };
+		DB83028F1868C28F00320F12 /* HMModelObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMModelObjectFactory.m; sourceTree = "<group>"; };
+		DB8302921868C28F00320F12 /* ModelObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelObjectFactory.h; sourceTree = "<group>"; };
+		DB8302931868C28F00320F12 /* ModelObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelObjectFactory.m; sourceTree = "<group>"; };
+		DB8302941868C28F00320F12 /* ObjectFactoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactoryProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +115,6 @@
 				DB38ECCB1868977200028517 /* CoreGraphics.framework in Frameworks */,
 				DB38ECCD1868977200028517 /* UIKit.framework in Frameworks */,
 				DB38ECC91868977200028517 /* Foundation.framework in Frameworks */,
-				B0AB9976724B498F884C8B84 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +138,6 @@
 				DB38ECE71868977200028517 /* WheelyTestAppTests */,
 				DB38ECC71868977200028517 /* Frameworks */,
 				DB38ECC61868977200028517 /* Products */,
-				7D03E6711B3F49CCB3E29701 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,8 +238,99 @@
 		DB38ED071868A7DA00028517 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB83028D1868C28F00320F12 /* ModelObjectsFactories */,
+				DB83024D1868B7CD00320F12 /* Common */,
+				DB83025A1868B7CD00320F12 /* DataProvider */,
+				DB83026A1868B7CD00320F12 /* HMModel */,
+				DB8302771868B7CD00320F12 /* ModelWrapper */,
+				DB8301F61868B46E00320F12 /* ThirdParty */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		DB8301F61868B46E00320F12 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				DB8302491868B53600320F12 /* MBProgressHUD */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		DB8302491868B53600320F12 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				DB83024A1868B53600320F12 /* MBProgressHUD.h */,
+				DB83024B1868B53600320F12 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = Model/ThirdParty/MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		DB83024D1868B7CD00320F12 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DB83024E1868B7CD00320F12 /* Common.h */,
+				DB83024F1868B7CD00320F12 /* Common.m */,
+				DB8302521868B7CD00320F12 /* UIDevice+Platform.h */,
+				DB8302531868B7CD00320F12 /* UIDevice+Platform.m */,
+				DB8302541868B7CD00320F12 /* UIFunctions.h */,
+				DB8302551868B7CD00320F12 /* UIFunctions.m */,
+				DB8302561868B7CD00320F12 /* UILabel+Additions.h */,
+				DB8302571868B7CD00320F12 /* UILabel+Additions.m */,
+			);
+			name = Common;
+			path = Model/Common;
+			sourceTree = "<group>";
+		};
+		DB83025A1868B7CD00320F12 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				DB83025D1868B7CD00320F12 /* DataProvider.h */,
+				DB83025E1868B7CD00320F12 /* DataProvider.m */,
+				DB83025F1868B7CD00320F12 /* DataProviderFactory.h */,
+				DB8302601868B7CD00320F12 /* DataProviderFactory.m */,
+				DB8302611868B7CD00320F12 /* WebServiceDataProvider.h */,
+				DB8302621868B7CD00320F12 /* WebServiceDataProvider.m */,
+				DB8302661868B7CD00320F12 /* RequestResultsController.h */,
+				DB8302671868B7CD00320F12 /* RequestResultsController.m */,
+			);
+			name = DataProvider;
+			path = Model/DataProvider;
+			sourceTree = "<group>";
+		};
+		DB83026A1868B7CD00320F12 /* HMModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB83026B1868B7CD00320F12 /* HMItem.h */,
+				DB83026C1868B7CD00320F12 /* HMItem.m */,
+				DB83026D1868B7CD00320F12 /* HMObject.h */,
+				DB83026E1868B7CD00320F12 /* HMObject.m */,
+			);
+			name = HMModel;
+			path = Model/HMModel;
+			sourceTree = "<group>";
+		};
+		DB8302771868B7CD00320F12 /* ModelWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				DB8302781868B7CD00320F12 /* ItemWrapperProtocol.h */,
+				DB8302791868B7CD00320F12 /* ModelWrapper.h */,
+				DB83027A1868B7CD00320F12 /* ObjectWrapperProtocol.h */,
+			);
+			name = ModelWrapper;
+			path = Model/ModelWrapper;
+			sourceTree = "<group>";
+		};
+		DB83028D1868C28F00320F12 /* ModelObjectsFactories */ = {
+			isa = PBXGroup;
+			children = (
+				DB83028E1868C28F00320F12 /* HMModelObjectFactory.h */,
+				DB83028F1868C28F00320F12 /* HMModelObjectFactory.m */,
+				DB8302921868C28F00320F12 /* ModelObjectFactory.h */,
+				DB8302931868C28F00320F12 /* ModelObjectFactory.m */,
+				DB8302941868C28F00320F12 /* ObjectFactoryProtocol.h */,
+			);
+			path = ModelObjectsFactories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,11 +340,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB38ECF11868977200028517 /* Build configuration list for PBXNativeTarget "WheelyTestApp" */;
 			buildPhases = (
-				671C483AF64F42BA91CD26F9 /* Check Pods Manifest.lock */,
 				DB38ECC11868977200028517 /* Sources */,
 				DB38ECC21868977200028517 /* Frameworks */,
 				DB38ECC31868977200028517 /* Resources */,
-				216E97876C0648A1936F43C6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,47 +426,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		216E97876C0648A1936F43C6 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		671C483AF64F42BA91CD26F9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		DB38ECC11868977200028517 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8302971868C28F00320F12 /* ModelObjectFactory.m in Sources */,
+				DB8302881868B7CD00320F12 /* HMItem.m in Sources */,
+				DB83027E1868B7CD00320F12 /* UIFunctions.m in Sources */,
+				DB83027F1868B7CD00320F12 /* UILabel+Additions.m in Sources */,
 				DB38ECD51868977200028517 /* main.m in Sources */,
+				DB8302861868B7CD00320F12 /* RequestResultsController.m in Sources */,
 				DB38ED051868A39600028517 /* HMWheelViewController.m in Sources */,
+				DB83027B1868B7CD00320F12 /* Common.m in Sources */,
+				DB8302821868B7CD00320F12 /* DataProvider.m in Sources */,
 				DB38ED021868A29D00028517 /* HMBaseTableViewController.m in Sources */,
+				DB8302831868B7CD00320F12 /* DataProviderFactory.m in Sources */,
+				DB8302841868B7CD00320F12 /* WebServiceDataProvider.m in Sources */,
+				DB8302891868B7CD00320F12 /* HMObject.m in Sources */,
+				DB83027D1868B7CD00320F12 /* UIDevice+Platform.m in Sources */,
+				DB8302951868C28F00320F12 /* HMModelObjectFactory.m in Sources */,
+				DB83024C1868B53600320F12 /* MBProgressHUD.m in Sources */,
 				DB38ECD91868977200028517 /* HMAppDelegate.m in Sources */,
 				DB38ECFF1868A28A00028517 /* HMBaseViewController.m in Sources */,
 			);
@@ -458,12 +566,16 @@
 		};
 		DB38ECF21868977200028517 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D03E6711B3F49CCB3E29701 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WheelyTestApp/WheelyTestApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode51-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+				);
 				INFOPLIST_FILE = "WheelyTestApp/WheelyTestApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -473,12 +585,16 @@
 		};
 		DB38ECF31868977200028517 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D03E6711B3F49CCB3E29701 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WheelyTestApp/WheelyTestApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode51-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+				);
 				INFOPLIST_FILE = "WheelyTestApp/WheelyTestApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";

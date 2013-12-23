@@ -1,0 +1,30 @@
+//
+//  NSDictionary+Properties.h
+
+#import <Foundation/Foundation.h>
+
+@interface NSDictionary (Properties)
+
+- (NSString *)stringForKey:(NSString *)key;
+- (NSNumber *)numberForKey:(id)key;
+- (NSDate *)dateForKey:(NSString *)key;
+- (NSArray *)arrayForKey:(NSString *)key;
+- (NSDictionary *)dictionaryForKey:(NSString *)key;
+
+@end
+
+
+@interface NSMutableDictionary (Properties)
+
+- (void)setString:(NSString *)string forKey:(id)key;
+- (void)setNumber:(NSNumber *)number forKey:(id)key;
+- (void)setDate:(NSDate *)date forKey:(id)key;
+- (void)setDateAsString:(NSDate *)date forKey:(id)key;
+
+@end
+
+@interface NSArray (Additions)
+
+- (NSArray *)uniqueObjectByKeyPath:(NSString *)keyPath;
+
+@end

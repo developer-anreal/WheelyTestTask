@@ -1,0 +1,15 @@
+//
+//  AsapBoldLabel.m
+//  OutFlair
+//
+
+#import "AsapBoldLabel.h"
+
+@implementation AsapBoldLabel
+
+- (void)resetDefaultFont
+{
+	[self setFontName:@"Asap-Bold"];
+}
+
+@end

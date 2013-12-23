@@ -1,0 +1,15 @@
+//
+//  CustomTextField.h
+//  2key
+//
+//
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CustomTextField : UITextField
+
+@property (nonatomic,strong) UIColor	*placeholderColor;
+@property (nonatomic,strong) UIFont		*placeholderFont;
+
+@end

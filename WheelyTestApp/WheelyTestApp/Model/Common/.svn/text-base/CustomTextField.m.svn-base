@@ -1,0 +1,33 @@
+//
+//  CustomTextField.m
+//  2key
+//
+//
+//
+
+#import "CustomTextField.h"
+
+@implementation CustomTextField
+
+- (void)drawPlaceholderInRect:(CGRect)rect {
+	if (IsIOS7)
+	{
+		NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+		[style setAlignment:self.textAlignment];
+		NSDictionary *attr = @{NSParagraphStyleAttributeName: style,
+													 NSFontAttributeName : self.placeholderFont,
+													 NSForegroundColorAttributeName : self.placeholderColor};
+		rect.origin.y = rect.origin.y + ((rect.size.height - self.placeholderFont.pointSize) / 2) - 2;
+		[[self placeholder] drawInRect:rect withAttributes:attr];
+	}
+	else
+	{
+		[self.placeholderColor setFill];
+		[[self placeholder] drawInRect:rect
+													withFont:self.placeholderFont
+										 lineBreakMode:NSLineBreakByWordWrapping
+												 alignment:self.textAlignment];
+	}
+}
+
+@end

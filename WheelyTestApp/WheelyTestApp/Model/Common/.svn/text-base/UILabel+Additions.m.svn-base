@@ -1,0 +1,29 @@
+//
+// UILabel(Additions)
+// Stampede
+//
+
+#import <sys/ucred.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <QuartzCore/QuartzCore.h>
+#import "UILabel+Additions.h"
+
+@implementation UILabel (Additions)
+
+- (void)resizeToStretch {
+  float height = [self expectedHeight];
+  CGRect newFrame = [self frame];
+  newFrame.size.height = floorf(height) + 1;
+  [self setFrame:newFrame];
+}
+
+- (float)expectedHeight {
+  CGSize maximumLabelSize = CGSizeMake(self.frame.size.width, CGFLOAT_MAX);
+  
+  CGSize expectedLabelSize = [[self text] sizeWithFont:[self font]
+                                     constrainedToSize:maximumLabelSize
+                                         lineBreakMode:[self lineBreakMode]];
+  return floorf(expectedLabelSize.height);
+}
+
+@end
