@@ -37,6 +37,7 @@
 		DB8302891868B7CD00320F12 /* HMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83026E1868B7CD00320F12 /* HMObject.m */; };
 		DB8302951868C28F00320F12 /* HMModelObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83028F1868C28F00320F12 /* HMModelObjectFactory.m */; };
 		DB8302971868C28F00320F12 /* ModelObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302931868C28F00320F12 /* ModelObjectFactory.m */; };
+		DB83029B1868DF2400320F12 /* HMDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83029A1868DF2400320F12 /* HMDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		DB8302921868C28F00320F12 /* ModelObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelObjectFactory.h; sourceTree = "<group>"; };
 		DB8302931868C28F00320F12 /* ModelObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelObjectFactory.m; sourceTree = "<group>"; };
 		DB8302941868C28F00320F12 /* ObjectFactoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactoryProtocol.h; sourceTree = "<group>"; };
+		DB8302991868DF2400320F12 /* HMDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMDetailsViewController.h; path = Controller/HMDetailsViewController.h; sourceTree = "<group>"; };
+		DB83029A1868DF2400320F12 /* HMDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMDetailsViewController.m; path = Controller/HMDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 				DB38ECFC1868A23500028517 /* Base */,
 				DB38ED031868A39600028517 /* HMWheelViewController.h */,
 				DB38ED041868A39600028517 /* HMWheelViewController.m */,
+				DB8302991868DF2400320F12 /* HMDetailsViewController.h */,
+				DB83029A1868DF2400320F12 /* HMDetailsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				DB8302891868B7CD00320F12 /* HMObject.m in Sources */,
 				DB83027D1868B7CD00320F12 /* UIDevice+Platform.m in Sources */,
 				DB8302951868C28F00320F12 /* HMModelObjectFactory.m in Sources */,
+				DB83029B1868DF2400320F12 /* HMDetailsViewController.m in Sources */,
 				DB83024C1868B53600320F12 /* MBProgressHUD.m in Sources */,
 				DB38ECD91868977200028517 /* HMAppDelegate.m in Sources */,
 				DB38ECFF1868A28A00028517 /* HMBaseViewController.m in Sources */,

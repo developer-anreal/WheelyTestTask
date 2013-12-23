@@ -6,6 +6,8 @@
 #import "DataProviderFactory.h"
 #import "RequestResultsController.h"
 #import "ItemWrapperProtocol.h"
+#import "HMDetailsViewController.h"
+#import "MBProgressHUD.h"
 
 @interface HMWheelViewController()<RequestResultsControllerDelegate> {
   DataProvider *dataProvider;
@@ -37,7 +39,7 @@
   resultsController = [[RequestResultsController alloc] initWithDataProvider:dataProvider];
   resultsController.delegate = self;
   
-  [resultsController load];
+  [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,8 +48,13 @@
 
 #pragma mark - Actions
 
+- (void)loadData {
+  [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+  [resultsController load];
+}
+
 - (IBAction)reloadInfoButtonTapped:(id)sender {
-  
+  [self loadData];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -61,7 +68,9 @@
 
 #pragma mark - UITableViewDelegate impl
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 #pragma mark - UITableViewDataSource impl
 
@@ -118,6 +127,19 @@
 
 - (void)controllerDidChangeContent:(RequestResultsController *)controller {
   [self.tableView endUpdates];
+}
+
+- (void)controllerDidLoadData:(RequestResultsController *)controller {
+  [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"DetailsSegueId"]) {
+    HMDetailsViewController *vc = (HMDetailsViewController *)segue.destinationViewController;
+    vc.item = [resultsController objectAtIndexPath:[self.tableView indexPathForCell:sender]];
+  }
 }
 
 @end

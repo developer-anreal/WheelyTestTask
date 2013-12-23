@@ -107,6 +107,7 @@
 }
 
 - (void)parseResponseData:(NSData *)data andError:(NSError *)error {
+  [self.delegate controllerDidLoadData:self];
   NSError *jsonError;
   NSArray *jsonItems = [NSJSONSerialization JSONObjectWithData:data
                                                             options:0
@@ -127,6 +128,5 @@
   
   Log(@"%@", jsonItems);
 }
-
 
 @end

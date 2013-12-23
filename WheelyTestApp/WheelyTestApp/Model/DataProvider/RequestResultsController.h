@@ -28,6 +28,7 @@ typedef enum {
 
 @protocol RequestResultsControllerDelegate <NSObject>
 @optional
+- (void)controllerDidLoadData:(RequestResultsController *)controller;
 - (void)controllerWillChangeContent:(RequestResultsController *)controller;
 - (void)controllerDidChangeContent:(RequestResultsController *)controller;
 - (void)controller:(RequestResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(RequestResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath;
