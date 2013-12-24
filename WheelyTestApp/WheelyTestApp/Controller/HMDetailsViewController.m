@@ -38,6 +38,21 @@
   }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  
+  UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                               style:UIBarButtonItemStyleBordered
+                                                              target:self
+                                                              action:@selector(backButtonTapped:)];
+  
+  self.navigationItem.leftBarButtonItem = backItem;
+}
+
+- (void)backButtonTapped:(id)sender {
+  [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
 }
