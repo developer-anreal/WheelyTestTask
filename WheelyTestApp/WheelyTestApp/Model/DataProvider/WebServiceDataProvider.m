@@ -18,7 +18,8 @@
 
 - (void)loadDataWithCompletion:(LoadDataCompleteBlock)completion {
   NSURL *url = [NSURL URLWithString:self.webUrl];
-  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+  request.HTTPMethod = @"GET";
   
   [NSURLConnection sendAsynchronousRequest:request
                                      queue:[NSOperationQueue mainQueue]
