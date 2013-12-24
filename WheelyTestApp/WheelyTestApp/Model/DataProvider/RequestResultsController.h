@@ -5,6 +5,8 @@
 #import <Foundation/Foundation.h>
 #import "DataProvider.h"
 
+#define DEFAULT_UPDATE_INTERVAL 10.
+
 typedef enum {
   RequestResultsChangeInsert = 0,
   RequestResultsChangeDelete,
@@ -23,6 +25,7 @@ typedef enum {
 
 @property (readonly) NSArray *allObjects;
 @property (weak) id<RequestResultsControllerDelegate> delegate;
+@property (assign, nonatomic) NSUInteger updateInterval;
 
 @end
 

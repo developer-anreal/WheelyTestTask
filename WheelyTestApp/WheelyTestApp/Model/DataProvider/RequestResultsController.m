@@ -9,12 +9,14 @@
 @implementation RequestResultsController {
   NSMutableArray *objects;
   DataProvider *dataProvider;
+  NSTimer *timer;
 }
 
 - (id)init {
   if (self = [super init]) {
     objects = [NSMutableArray array];
     [objects addObject:@[]];
+    _updateInterval = DEFAULT_UPDATE_INTERVAL;
   }
   
   return self;
@@ -36,7 +38,24 @@
   return [NSArray arrayWithArray:objects];
 }
 
-- (void)requestData {
+- (void)setUpdateInterval:(NSUInteger)timeInterval {
+  if (timeInterval == _updateInterval) return;
+  
+  _updateInterval = timeInterval;
+  
+  if (timer.isValid) {
+    [timer invalidate];
+  }
+  
+  timer = [NSTimer timerWithTimeInterval:self.updateInterval
+                                  target:self
+                                selector:@selector(requestData:)
+                                userInfo:nil
+                                 repeats:YES];
+  [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)requestData:(NSTimer *)timer {
   [dataProvider loadDataWithCompletion:^(NSError *error, NSData *data) {
     dispatch_async(dispatch_get_main_queue(), ^{
       [self parseResponseData:data andError:error];
@@ -45,9 +64,18 @@
 }
 
 - (void)load {
-  [objects removeAllObjects];
-  [objects addObject:@[]];
-  [self requestData];
+  if (timer.isValid) {
+    [timer invalidate];
+  }
+  
+  [self requestData:nil];
+  
+  timer = [NSTimer timerWithTimeInterval:self.updateInterval
+                                  target:self
+                                selector:@selector(requestData:)
+                                userInfo:nil
+                                 repeats:YES];
+  [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 - (void)makeItemDiff:(NSArray *)newObjects {
@@ -71,19 +99,11 @@
     return index == NSNotFound;
   }];
   
-//  NSIndexSet *indexesSetForUpdate = [newObjects indexesOfObjectsPassingTest:^BOOL(id newObj, NSUInteger idx, BOOL *stop) {
-//    NSUInteger index = [objects indexOfObjectPassingTest:^BOOL(id oldObj, NSUInteger idx, BOOL *stop) {
-//      return [[oldObj itemId] isEqualToString:[newObj itemId]];
-//    }];
-//    
-//    return index == NSNotFound;
-//  }];
-  
   NSArray *oldObjects = [NSArray arrayWithArray:objects];
   
   objects = [NSMutableArray arrayWithArray:newObjects];
   
-  NSArray *itemsForDeletion = [objects[0] objectsAtIndexes:indexesSetForDeletion];
+  NSArray *itemsForDeletion = [oldObjects[0] objectsAtIndexes:indexesSetForDeletion];
   
   for (id<ItemWrapperProtocol> item in itemsForDeletion) {
     [self.delegate controller:self
@@ -102,6 +122,11 @@
                 forChangeType:RequestResultsChangeInsert
                  newIndexPath:[NSIndexPath indexPathForItem:[newObjects[0] indexOfObject:item] inSection:0]];
   }
+  
+  // существующие объекты не изменяются
+  // в случае их изменения по аналогии с удалением и созданием,
+  // находим в новых те объекты, которые уже существовали и для которых,
+  // поменялся либо title, либо text. для них вызываем метод делегата.
   
   [self.delegate controllerDidChangeContent:self];
 }
@@ -126,7 +151,7 @@
   
   [self makeItemDiff:@[newObjects]];
   
-  Log(@"%@", jsonItems);
+  Log(@"All objects = %@\nNew objects count = %d", jsonItems, jsonItems.count);
 }
 
 @end

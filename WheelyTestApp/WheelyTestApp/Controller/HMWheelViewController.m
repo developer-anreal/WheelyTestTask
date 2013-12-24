@@ -49,7 +49,7 @@
 #pragma mark - Actions
 
 - (void)loadData {
-  [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+  [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication].delegate window] animated:YES];
   [resultsController load];
 }
 
@@ -130,7 +130,7 @@
 }
 
 - (void)controllerDidLoadData:(RequestResultsController *)controller {
-  [MBProgressHUD hideHUDForView:self.view animated:YES];
+  [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication].delegate window] animated:YES];
 }
 
 #pragma mark - Segue
