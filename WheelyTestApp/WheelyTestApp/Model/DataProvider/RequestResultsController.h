@@ -3,7 +3,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DataProvider.h"
 
 #define DEFAULT_UPDATE_INTERVAL 10.
 
@@ -19,7 +18,6 @@ typedef enum {
 @interface RequestResultsController : NSObject {
 }
 
-- (id)initWithDataProvider:(DataProvider *)provider;
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath;
 - (void)load;
 

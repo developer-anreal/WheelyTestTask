@@ -3,12 +3,11 @@
 //
 
 #import "RequestResultsController.h"
-#import "ItemWrapperProtocol.h"
-#import "HMModelObjectFactory.h"
+#import "WebService.h"
 
 @implementation RequestResultsController {
   NSMutableArray *objects;
-  DataProvider *dataProvider;
+  WebService *dataProvider;
   NSTimer *timer;
 }
 
@@ -17,14 +16,6 @@
     objects = [NSMutableArray array];
     [objects addObject:@[]];
     _updateInterval = DEFAULT_UPDATE_INTERVAL;
-  }
-  
-  return self;
-}
-
-- (id)initWithDataProvider:(DataProvider *)provider {
-  if (self = [self init]) {
-    dataProvider = provider;
   }
   
   return self;

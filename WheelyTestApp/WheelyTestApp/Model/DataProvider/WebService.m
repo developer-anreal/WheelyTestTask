@@ -1,10 +1,10 @@
 //
-// WebServiceDataProvider.m
+// WebService.m
 //
 
-#import "WebServiceDataProvider.h"
+#import "WebService.h"
 
-@implementation WebServiceDataProvider {
+@implementation WebService {
 
 }
 

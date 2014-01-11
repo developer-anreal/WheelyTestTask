@@ -29,14 +29,9 @@
 		DB83027D1868B7CD00320F12 /* UIDevice+Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302531868B7CD00320F12 /* UIDevice+Platform.m */; };
 		DB83027E1868B7CD00320F12 /* UIFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302551868B7CD00320F12 /* UIFunctions.m */; };
 		DB83027F1868B7CD00320F12 /* UILabel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302571868B7CD00320F12 /* UILabel+Additions.m */; };
-		DB8302821868B7CD00320F12 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83025E1868B7CD00320F12 /* DataProvider.m */; };
-		DB8302831868B7CD00320F12 /* DataProviderFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302601868B7CD00320F12 /* DataProviderFactory.m */; };
-		DB8302841868B7CD00320F12 /* WebServiceDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302621868B7CD00320F12 /* WebServiceDataProvider.m */; };
+		DB8302841868B7CD00320F12 /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302621868B7CD00320F12 /* WebService.m */; };
 		DB8302861868B7CD00320F12 /* RequestResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302671868B7CD00320F12 /* RequestResultsController.m */; };
 		DB8302881868B7CD00320F12 /* HMItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83026C1868B7CD00320F12 /* HMItem.m */; };
-		DB8302891868B7CD00320F12 /* HMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83026E1868B7CD00320F12 /* HMObject.m */; };
-		DB8302951868C28F00320F12 /* HMModelObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83028F1868C28F00320F12 /* HMModelObjectFactory.m */; };
-		DB8302971868C28F00320F12 /* ModelObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8302931868C28F00320F12 /* ModelObjectFactory.m */; };
 		DB83029B1868DF2400320F12 /* HMDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83029A1868DF2400320F12 /* HMDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		81D6969AC06A45599DD0519E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB38ECC51868977200028517 /* WheelyTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheelyTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB38ECC81868977200028517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DB38ECCA1868977200028517 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,26 +80,12 @@
 		DB8302551868B7CD00320F12 /* UIFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFunctions.m; sourceTree = "<group>"; };
 		DB8302561868B7CD00320F12 /* UILabel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Additions.h"; sourceTree = "<group>"; };
 		DB8302571868B7CD00320F12 /* UILabel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Additions.m"; sourceTree = "<group>"; };
-		DB83025D1868B7CD00320F12 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
-		DB83025E1868B7CD00320F12 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
-		DB83025F1868B7CD00320F12 /* DataProviderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderFactory.h; sourceTree = "<group>"; };
-		DB8302601868B7CD00320F12 /* DataProviderFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderFactory.m; sourceTree = "<group>"; };
-		DB8302611868B7CD00320F12 /* WebServiceDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceDataProvider.h; sourceTree = "<group>"; };
-		DB8302621868B7CD00320F12 /* WebServiceDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceDataProvider.m; sourceTree = "<group>"; };
+		DB8302611868B7CD00320F12 /* WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebService.h; sourceTree = "<group>"; };
+		DB8302621868B7CD00320F12 /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebService.m; sourceTree = "<group>"; };
 		DB8302661868B7CD00320F12 /* RequestResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestResultsController.h; sourceTree = "<group>"; };
 		DB8302671868B7CD00320F12 /* RequestResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestResultsController.m; sourceTree = "<group>"; };
 		DB83026B1868B7CD00320F12 /* HMItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMItem.h; sourceTree = "<group>"; };
 		DB83026C1868B7CD00320F12 /* HMItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMItem.m; sourceTree = "<group>"; };
-		DB83026D1868B7CD00320F12 /* HMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMObject.h; sourceTree = "<group>"; };
-		DB83026E1868B7CD00320F12 /* HMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMObject.m; sourceTree = "<group>"; };
-		DB8302781868B7CD00320F12 /* ItemWrapperProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemWrapperProtocol.h; sourceTree = "<group>"; };
-		DB8302791868B7CD00320F12 /* ModelWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelWrapper.h; sourceTree = "<group>"; };
-		DB83027A1868B7CD00320F12 /* ObjectWrapperProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWrapperProtocol.h; sourceTree = "<group>"; };
-		DB83028E1868C28F00320F12 /* HMModelObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMModelObjectFactory.h; sourceTree = "<group>"; };
-		DB83028F1868C28F00320F12 /* HMModelObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMModelObjectFactory.m; sourceTree = "<group>"; };
-		DB8302921868C28F00320F12 /* ModelObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelObjectFactory.h; sourceTree = "<group>"; };
-		DB8302931868C28F00320F12 /* ModelObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelObjectFactory.m; sourceTree = "<group>"; };
-		DB8302941868C28F00320F12 /* ObjectFactoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactoryProtocol.h; sourceTree = "<group>"; };
 		DB8302991868DF2400320F12 /* HMDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMDetailsViewController.h; path = Controller/HMDetailsViewController.h; sourceTree = "<group>"; };
 		DB83029A1868DF2400320F12 /* HMDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMDetailsViewController.m; path = Controller/HMDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,7 +140,6 @@
 				DB38ECCA1868977200028517 /* CoreGraphics.framework */,
 				DB38ECCC1868977200028517 /* UIKit.framework */,
 				DB38ECE11868977200028517 /* XCTest.framework */,
-				81D6969AC06A45599DD0519E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -243,11 +222,9 @@
 		DB38ED071868A7DA00028517 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB83028D1868C28F00320F12 /* ModelObjectsFactories */,
 				DB83024D1868B7CD00320F12 /* Common */,
 				DB83025A1868B7CD00320F12 /* DataProvider */,
 				DB83026A1868B7CD00320F12 /* HMModel */,
-				DB8302771868B7CD00320F12 /* ModelWrapper */,
 				DB8301F61868B46E00320F12 /* ThirdParty */,
 			);
 			name = Model;
@@ -290,12 +267,8 @@
 		DB83025A1868B7CD00320F12 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
-				DB83025D1868B7CD00320F12 /* DataProvider.h */,
-				DB83025E1868B7CD00320F12 /* DataProvider.m */,
-				DB83025F1868B7CD00320F12 /* DataProviderFactory.h */,
-				DB8302601868B7CD00320F12 /* DataProviderFactory.m */,
-				DB8302611868B7CD00320F12 /* WebServiceDataProvider.h */,
-				DB8302621868B7CD00320F12 /* WebServiceDataProvider.m */,
+				DB8302611868B7CD00320F12 /* WebService.h */,
+				DB8302621868B7CD00320F12 /* WebService.m */,
 				DB8302661868B7CD00320F12 /* RequestResultsController.h */,
 				DB8302671868B7CD00320F12 /* RequestResultsController.m */,
 			);
@@ -308,34 +281,9 @@
 			children = (
 				DB83026B1868B7CD00320F12 /* HMItem.h */,
 				DB83026C1868B7CD00320F12 /* HMItem.m */,
-				DB83026D1868B7CD00320F12 /* HMObject.h */,
-				DB83026E1868B7CD00320F12 /* HMObject.m */,
 			);
 			name = HMModel;
 			path = Model/HMModel;
-			sourceTree = "<group>";
-		};
-		DB8302771868B7CD00320F12 /* ModelWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				DB8302781868B7CD00320F12 /* ItemWrapperProtocol.h */,
-				DB8302791868B7CD00320F12 /* ModelWrapper.h */,
-				DB83027A1868B7CD00320F12 /* ObjectWrapperProtocol.h */,
-			);
-			name = ModelWrapper;
-			path = Model/ModelWrapper;
-			sourceTree = "<group>";
-		};
-		DB83028D1868C28F00320F12 /* ModelObjectsFactories */ = {
-			isa = PBXGroup;
-			children = (
-				DB83028E1868C28F00320F12 /* HMModelObjectFactory.h */,
-				DB83028F1868C28F00320F12 /* HMModelObjectFactory.m */,
-				DB8302921868C28F00320F12 /* ModelObjectFactory.h */,
-				DB8302931868C28F00320F12 /* ModelObjectFactory.m */,
-				DB8302941868C28F00320F12 /* ObjectFactoryProtocol.h */,
-			);
-			path = ModelObjectsFactories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB8302971868C28F00320F12 /* ModelObjectFactory.m in Sources */,
 				DB8302881868B7CD00320F12 /* HMItem.m in Sources */,
 				DB83027E1868B7CD00320F12 /* UIFunctions.m in Sources */,
 				DB83027F1868B7CD00320F12 /* UILabel+Additions.m in Sources */,
@@ -444,13 +391,9 @@
 				DB8302861868B7CD00320F12 /* RequestResultsController.m in Sources */,
 				DB38ED051868A39600028517 /* HMWheelViewController.m in Sources */,
 				DB83027B1868B7CD00320F12 /* Common.m in Sources */,
-				DB8302821868B7CD00320F12 /* DataProvider.m in Sources */,
 				DB38ED021868A29D00028517 /* HMBaseTableViewController.m in Sources */,
-				DB8302831868B7CD00320F12 /* DataProviderFactory.m in Sources */,
-				DB8302841868B7CD00320F12 /* WebServiceDataProvider.m in Sources */,
-				DB8302891868B7CD00320F12 /* HMObject.m in Sources */,
+				DB8302841868B7CD00320F12 /* WebService.m in Sources */,
 				DB83027D1868B7CD00320F12 /* UIDevice+Platform.m in Sources */,
-				DB8302951868C28F00320F12 /* HMModelObjectFactory.m in Sources */,
 				DB83029B1868DF2400320F12 /* HMDetailsViewController.m in Sources */,
 				DB83024C1868B53600320F12 /* MBProgressHUD.m in Sources */,
 				DB38ECD91868977200028517 /* HMAppDelegate.m in Sources */,

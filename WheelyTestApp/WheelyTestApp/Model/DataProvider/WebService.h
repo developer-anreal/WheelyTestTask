@@ -1,14 +1,16 @@
 //
-// DataProvider
+// WebService.h
 //
 
 #import <Foundation/Foundation.h>
 
 typedef void(^LoadDataCompleteBlock)(NSError *, NSData *);
 
-@interface DataProvider : NSObject
+@interface WebService : NSObject
 
-- (NSData *)loadDataWithError:(NSError **)error;
+- (id)initWithWebServiceUrl:(NSString *)webUrl;
 - (void)loadDataWithCompletion:(LoadDataCompleteBlock)completion;
+
+@property (strong) NSString *webUrl;
 
 @end
