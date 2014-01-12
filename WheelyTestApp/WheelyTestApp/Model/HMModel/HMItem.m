@@ -5,39 +5,17 @@
 #import "HMItem.h"
 
 @implementation HMItem {
-  NSString *itemTitle;
-  NSString *itemId;
-  NSString *itemText;
+
 }
 
-- (NSString *)itemId {
-  return itemId;
-}
+- (instancetype)initItemWithDictionary:(NSDictionary *)dictionary {
+  if (self = [super init]) {
+    self.itemTitle = dictionary[@"title"];
+    self.itemText = dictionary[@"text"];
+    self.itemId = [NSString stringWithFormat:@"%lld", [dictionary[@"id"] longLongValue]];
+  }
 
-- (void)setItemId:(NSString *)itemId_ {
-  if ([itemId isEqualToString:itemId_]) return;
-  
-  itemId = [[NSString alloc] initWithString:itemId_];
-}
-
-- (NSString *)title {
-  return itemTitle;
-}
-
-- (void)setTitle:(NSString *)title {
-  if ([itemTitle isEqualToString:title]) return;
-  
-  itemTitle = [[NSString alloc] initWithString:title];
-}
-
-- (NSString *)text {
-  return itemText;
-}
-
-- (void)setText:(NSString *)text {
-  if ([itemText isEqualToString:text]) return;
-  
-  itemText = [[NSString alloc] initWithString:text];
+  return self;
 }
 
 @end

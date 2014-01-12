@@ -2,9 +2,8 @@
 //  HMDetailsViewController.m
 //
 
-#import <QuartzCore/QuartzCore.h>
 #import "HMDetailsViewController.h"
-#import "UILabel+Additions.h"
+#import "HMItem.h"
 
 @interface HMDetailsViewController ()
 
@@ -58,13 +57,13 @@
 }
 
 - (void)updateUIValues {
-  self.title = [self.item title];
+  self.title = self.item.itemTitle;
   
-  self.titleValueLabel.text = [self.item title];
-  self.textView.text = [self.item text];
+  self.titleValueLabel.text = self.item.itemTitle;
+  self.textView.text = self.item.itemText;
 }
 
-- (void)setItem:(id<ItemWrapperProtocol>)item {
+- (void)setItem:(HMItem *)item {
   if (item == _item) return;
   
   _item = item;

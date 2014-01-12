@@ -3,15 +3,13 @@
 //
 
 #import "HMWheelViewController.h"
-#import "DataProviderFactory.h"
-#import "RequestResultsController.h"
-#import "ItemWrapperProtocol.h"
+#import "ItemsController.h"
 #import "HMDetailsViewController.h"
 #import "MBProgressHUD.h"
+#import "HMItem.h"
 
-@interface HMWheelViewController()<RequestResultsControllerDelegate> {
-  DataProvider *dataProvider;
-  RequestResultsController *resultsController;
+@interface HMWheelViewController()<ItemsControllerDelegate> {
+  ItemsController *resultsController;
 }
 
 @end
@@ -35,8 +33,7 @@
   
   self.navigationItem.rightBarButtonItem = reloadInfoButton;
   
-  dataProvider = [DataProviderFactory dataProviderByType:WebServiceDataProviderType];
-  resultsController = [[RequestResultsController alloc] initWithDataProvider:dataProvider];
+  resultsController = [[ItemsController alloc] init];
   resultsController.delegate = self;
   
   [self loadData];
@@ -58,10 +55,10 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-  id<ItemWrapperProtocol> item = [resultsController objectAtIndexPath:indexPath];
-  
-  cell.textLabel.text = [item title];
-  cell.detailTextLabel.text = [item text];
+  HMItem *item = [resultsController objectAtIndex:indexPath.row];
+
+  cell.textLabel.text = item.itemTitle;
+  cell.detailTextLabel.text = item.itemText;
   
   cell.detailTextLabel.font = [UIFont italicSystemFontOfSize:cell.detailTextLabel.font.pointSize];
 }
@@ -75,11 +72,11 @@
 #pragma mark - UITableViewDataSource impl
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return [[resultsController allObjects] count];
+  return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [[resultsController allObjects][section] count];
+  return [resultsController allObjects].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,12 +91,12 @@
 
 #pragma mark - RequestResultsControllerDelegate impl
 
-- (void)controllerWillChangeContent:(RequestResultsController *)controller {
+- (void)controllerWillChangeContent:(ItemsController *)controller {
   [self.tableView beginUpdates];
 }
 
 
-- (void)controller:(RequestResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(RequestResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+- (void)controller:(ItemsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(RequestResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
   
   UITableView *tableView = self.tableView;
   
@@ -125,11 +122,11 @@
   }
 }
 
-- (void)controllerDidChangeContent:(RequestResultsController *)controller {
+- (void)controllerDidChangeContent:(ItemsController *)controller {
   [self.tableView endUpdates];
 }
 
-- (void)controllerDidLoadData:(RequestResultsController *)controller {
+- (void)controllerDidLoadData:(ItemsController *)controller {
   [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication].delegate window] animated:YES];
 }
 
@@ -138,7 +135,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"DetailsSegueId"]) {
     HMDetailsViewController *vc = (HMDetailsViewController *)segue.destinationViewController;
-    vc.item = [resultsController objectAtIndexPath:[self.tableView indexPathForCell:sender]];
+    vc.item = [resultsController objectAtIndex:[self.tableView indexPathForCell:sender]];
   }
 }
 

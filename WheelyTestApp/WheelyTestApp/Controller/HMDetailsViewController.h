@@ -3,11 +3,12 @@
 //
 
 #import "HMBaseViewController.h"
-#import "ItemWrapperProtocol.h"
+
+@class HMItem;
 
 @interface HMDetailsViewController : HMBaseViewController
 
-@property (nonatomic, strong) id<ItemWrapperProtocol> item;
+@property (nonatomic, strong) HMItem *item;
 @property (weak, nonatomic) IBOutlet UIView *titleContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *titleValueLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
