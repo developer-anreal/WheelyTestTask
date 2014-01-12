@@ -10,6 +10,7 @@
   NSMutableArray *objects;
   WebService *dataProvider;
   NSTimer *timer;
+  dispatch_queue_t requestQueue;
 }
 
 - (id)init {
@@ -17,6 +18,7 @@
     objects = [NSMutableArray array];
     _updateInterval = DEFAULT_UPDATE_INTERVAL;
     dataProvider = [[WebService alloc] initWithWebServiceUrl:WEBSERVICE_URL];
+    requestQueue = dispatch_queue_create("Request queue", DISPATCH_QUEUE_SERIAL);
   }
   
   return self;
@@ -48,11 +50,11 @@
 }
 
 - (void)requestData:(NSTimer *)timer {
-  [dataProvider loadDataWithCompletion:^(NSError *error, NSData *data) {
-    dispatch_async(dispatch_queue_create("Pase data", DISPATCH_QUEUE_SERIAL), ^{
-      [self parseResponseData:data andError:error];
-    });
-  }];
+  dispatch_async(requestQueue, ^{
+    NSError *error = nil;
+    NSData *data = [dataProvider loadDataWithError:error];
+    [self parseResponseData:data andError:error];
+  });
 }
 
 - (void)load {
@@ -72,7 +74,7 @@
 
 - (void)makeItemDiff:(NSArray *)newObjects {
   [self.delegate controllerWillChangeContent:self];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_sync(dispatch_get_main_queue(), ^{
   });
 
   NSSet *newSet = [NSSet setWithArray:newObjects];
@@ -104,13 +106,6 @@
                       atIndexPath:indexPath
                     forChangeType:type
                      newIndexPath:newIndexPath];
-//        dispatch_sync(dispatch_get_main_queue(), ^{
-//          [self.delegate controller:self
-//                    didChangeObject:array[idx]
-//                        atIndexPath:indexPath
-//                      forChangeType:type
-//                       newIndexPath:newIndexPath];
-//        });
       }
     }];
   };
@@ -125,13 +120,13 @@
   // находим в новых те объекты, которые уже существовали и для которых,
   // поменялся либо title, либо text. для них вызываем метод делегата.
 
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     [self.delegate controllerDidChangeContent:self];
   });
 }
 
 - (void)parseResponseData:(NSData *)data andError:(NSError *)error {
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     [self.delegate controllerDidLoadData:self];
   });
 

@@ -10,6 +10,7 @@ typedef void(^LoadDataCompleteBlock)(NSError *, NSData *);
 
 - (id)initWithWebServiceUrl:(NSString *)webUrl;
 - (void)loadDataWithCompletion:(LoadDataCompleteBlock)completion;
+- (NSData *)loadDataWithError:(NSError *)error;
 
 @property (strong) NSString *webUrl;
 

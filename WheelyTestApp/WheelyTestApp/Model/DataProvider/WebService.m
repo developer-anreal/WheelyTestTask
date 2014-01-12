@@ -28,4 +28,16 @@
                          }];
 }
 
+- (NSData *)loadDataWithError:(NSError *)error {
+  NSURL *url = [NSURL URLWithString:self.webUrl];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+  request.HTTPMethod = @"GET";
+  NSURLResponse *response;
+  NSData *data;
+  data = [NSURLConnection sendSynchronousRequest:request
+                               returningResponse:&response
+                                           error:&error];
+  return data;
+}
+
 @end
